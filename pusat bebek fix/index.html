@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pusat Bebek - Kenali Lebih Dekat</title>
+    
+    <!-- Menggunakan Tailwind CSS untuk styling cepat dan responsif -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Menggunakan Font Poppins agar mirip dengan desain -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    
+    <!-- Icons (Lucide) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            font-family: "Plus Jakarta Sans", sans-serif;
+            background-color: #FAFAFA;
+        }
+        
+        /* Warna Kuning Utama sesuai desain */
+        .bg-bebek {
+            background-color: #FFCC00;
+        }
+        .text-bebek {
+            color: #FFCC00;
+        }
+        .border-bebek {
+            border-color: #FFCC00;
+        }
+
+        /* Transisi halus untuk slider */
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Styling khusus untuk list */
+        ul.custom-bullets li {
+            position: relative;
+            padding-left: 1.5em;
+            margin-bottom: 0.5em;
+        }
+        ul.custom-bullets li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: black;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- NAVBAR -->
+    <nav class="bg-bebek py-4 px-6 md:px-12 flex justify-between items-center sticky top-0 z-50 shadow-md">
+        <div class="flex items-center gap-2 bg-white px-3 py-1 rounded-md shadow-sm">
+            <!-- Logo Placeholder -->
+            <div class="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center">
+                <i data-lucide="bird" class="text-white w-5 h-5"></i>
+            </div>
+            <span class="font-bold text-lg tracking-tight">Pusat<br><span class="text-yellow-600">Bebek</span></span>
+        </div>
+        
+        <div class="hidden md:flex gap-8 font-semibold text-white text-lg">
+            <a href="#" class="hover:text-gray-800 transition">Beranda</a>
+            <a href="#kenalan" class="hover:text-gray-800 transition">Kenalan</a>
+            <a href="#explore" class="hover:text-gray-800 transition">Explore</a>
+            <a href="#produk" class="hover:text-gray-800 transition">Produk</a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button class="md:hidden text-white">
+            <i data-lucide="menu" class="w-8 h-8"></i>
+        </button>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="bg-gray-600 h-[400px] flex items-center justify-center text-center px-4">
+        <h1 class="text-4xl md:text-6xl font-bold text-white drop-shadow-lg">
+            Kenali Lebih Dekat!
+        </h1>
+    </header>
+
+    <!-- SECTION 1: SIAPA ITU BEBEK? -->
+    <section id="kenalan" class="py-16 px-6 md:px-20 bg-white">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            
+            <!-- Text Content -->
+            <div>
+                <h2 class="text-4xl font-bold mb-2">Siapa itu <span class="text-bebek">BEBEK ?</span></h2>
+                <div class="w-20 h-1 bg-bebek mb-6"></div>
+                <p class="text-gray-600 leading-relaxed text-justify">
+                    Bebek adalah jenis burung air yang termasuk dalam famili <span class="italic underline">Anatidae</span>, berkerabat dengan angsa dan angsa muda. Memiliki ciri kaki berselaput untuk berenang dan paruh lebar untuk mencari makan di air tawar atau laut. Dengan bulu tahan air, serta bisa ditemukan di berbagai habitat dan sering diternakkan untuk daging dan telurnya.
+                </p>
+            </div>
+
+            <!-- Image Content -->
+            <div class="flex justify-center relative">
+                <!-- Simple Duck Illustration Placeholder -->
+                           <video class="hero-video" autoplay muted loop playsinline>
+            <source src="happy-duck-cute-duck.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: EXPLOR BEBEK MU (SLIDER 1) -->
+    <section id="explore" class="bg-bebek py-16 px-6 md:px-20 overflow-hidden relative">
+        <div class="max-w-6xl mx-auto">
+            
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center" id="explore-container">
+                <!-- Content will be injected by JS -->
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="flex justify-center gap-4 mt-8">
+                <button onclick="prevExplore()" class="bg-white hover:bg-gray-100 text-black w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition transform hover:scale-110">
+                    <i data-lucide="arrow-left"></i>
+                </button>
+                <button onclick="nextExplore()" class="bg-white hover:bg-gray-100 text-black w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition transform hover:scale-110">
+                    <i data-lucide="arrow-right"></i>
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 3: TESTIMONIALS (SLIDER 2) -->
+    <section class="py-20 px-4 md:px-20 bg-white">
+        <div class="max-w-5xl mx-auto">
+            
+            <!-- Card Container -->
+            <div class="bg-white border-2 border-gray-200 rounded-3xl p-8 md:p-12 shadow-2xl relative">
+                
+                <h2 class="text-3xl md:text-4xl font-bold text-bebek mb-8">Ini kata mereka!</h2>
+
+                <div id="testimonial-container" class="fade-in min-h-[300px] flex flex-col md:flex-row gap-8 items-center md:items-start justify-between">
+                    <!-- Content injected by JS -->
+                </div>
+
+                <!-- Navigation Buttons (Centered Bottom) -->
+                <div class="flex justify-center gap-4 mt-8">
+                    <button onclick="prevTestimonial()" class="bg-bebek hover:bg-yellow-400 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-md transition transform hover:scale-110">
+                        <i data-lucide="arrow-left"></i>
+                    </button>
+                    <button onclick="nextTestimonial()" class="bg-bebek hover:bg-yellow-400 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-md transition transform hover:scale-110">
+                        <i data-lucide="arrow-right"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-bebek py-16 text-center text-white">
+        <p class="text-lg font-medium mb-2 opacity-90">Tanya tanya dulu</p>
+        <h2 class="text-3xl md:text-5xl font-extrabold tracking-wide">#PeduliLindungiBEBEK</h2>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // --- DATA EXPLORE ---
+        const exploreData = [
+            {
+                id: 1,
+                title: "Manfaat BEBEK bagi lingkungan",
+                points: [
+                    "<strong>Pengendalian Hama:</strong> Bebek memakan serangga dan hama di lahan pertanian, membantu mengurangi penggunaan pestisida.",
+                    "<strong>Pupuk Alami:</strong> Kotoran bebek kaya nutrisi dan dapat digunakan sebagai pupuk organik untuk menyuburkan tanah.",
+                    "<strong>Pembersih Lahan:</strong> Membantu membersihkan gulma dan sisa tanaman di sawah, mengurangi pekerjaan manual.",
+                    "<strong>Meningkatkan Kesehatan Tanah:</strong> Aktivitasnya membantu aerasi tanah dan meningkatkan kandungan organik."
+                ],
+                image: "bebek ciuman.png"
+            },
+            {
+                id: 2,
+                title: "Olahan BEBEK tradisional",
+                points: [
+                    "<strong>Bebek Goreng Madura:</strong> Ciri khasnya adalah bumbu rempah hitam (bumbu jangkep) yang gurih dan pedas.",
+                    "<strong>Bebek Betutu (Bali):</strong> Bebek utuh yang dibumbui 'base genep' kemudian dipanggang atau dikukus lama.",
+                    "<strong>Itiak Lado Mudo (Minang):</strong> Olahan bebek khas Bukittinggi dimasak dengan cabai hijau keriting.",
+                    "<strong>Bebek Rica-Rica:</strong> Dimasak dengan bumbu pedas khas Manado yang kaya daun jeruk, serai, dan kemangi."
+                ],
+                image: "bebek goreng.png"
+            },
+            {
+                id: 3,
+                title: "Keuntungan Ekonomi",
+                points: [
+                    "<strong>Panen Singkat:</strong> Bebek pedaging dapat dipanen relatif cepat (40-50 hari), perputaran modal lincah.",
+                    "<strong>Permintaan Pasar Stabil:</strong> Kuliner berbahan bebek memiliki pasar luas, dari kaki lima hingga restoran mewah.",
+                    "<strong>Pendapatan Harian:</strong> Untuk tipe petelur, peternak dapat memperoleh pemasukan harian dari penjualan telur segar atau asin."
+                ],
+                image: "bebek kaya.png"
+            }
+        ];
+
+        let exploreIndex = 0;
+
+        function renderExplore() {
+            const container = document.getElementById('explore-container');
+            const data = exploreData[exploreIndex];
+            
+            // Build the list HTML
+            const pointsHtml = data.points.map(point => `<li>${point}</li>`).join('');
+
+            container.innerHTML = `
+                <!-- Title & Image Section (Mobile Order) -->
+                <div class="col-span-1 md:col-span-5 fade-in flex flex-col items-center justify-center">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-white text-center md:text-left mb-6 uppercase md:hidden">EXPLOR BEBEK MU!</h2>
+                    <img src="${data.image}" alt="${data.title}" class="rounded-xl shadow-lg w-full max-w-sm object-cover border-4 border-white">
+                </div>
+
+                <!-- Text Section -->
+                <div class="col-span-1 md:col-span-7 text-left fade-in pl-0 md:pl-8">
+                    <h2 class="hidden md:block text-4xl font-extrabold text-white mb-2 uppercase">EXPLOR BEBEK MU!</h2>
+                    
+                    <div class="flex items-start gap-4 mt-4">
+                        <span class="text-6xl font-bold text-black opacity-80 leading-none">${data.id}</span>
+                        <div>
+                            <h3 class="text-2xl font-bold text-black mb-4 leading-tight">${data.title}</h3>
+                            <ul class="custom-bullets text-sm md:text-base font-medium space-y-2 text-gray-900">
+                                ${pointsHtml}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function nextExplore() {
+            exploreIndex = (exploreIndex + 1) % exploreData.length;
+            renderExplore();
+        }
+
+        function prevExplore() {
+            exploreIndex = (exploreIndex - 1 + exploreData.length) % exploreData.length;
+            renderExplore();
+        }
+
+        // --- DATA TESTIMONIAL ---
+        const testimonialData = [
+            {
+                quote: "Every time before I do research, I don't forget to play with my favorite duck, Denial. he is the one who gives me inspiration.",
+                name: "Niels Bohr",
+                role: "Ilmuan, Fisikawan, Penemu model atom Bohr",
+                image: "https://upload.wikimedia.org/wikipedia/commons/6/6d/Niels_Bohr.jpg" 
+            },
+            {
+                quote: "It's my honor and responsibility to protect and support PUSAT BEBEK our for national security.",
+                name: "Donald J. Trump",
+                role: "Presiden Amerika Serikat - 45 & 47",
+                image: "https://upload.wikimedia.org/wikipedia/commons/5/56/Donald_Trump_official_portrait.jpg"
+            },
+            {
+                quote: "Pusat BEBEK menjadi wadah informasi serta pendidikan dalam mengembangkan ide ide gagasan untuk memajukan bangsa, serta ikut membantu perkembangan riset seputar BEBEK.",
+                name: "Bahlil Lahadalia",
+                role: "Menteri Energi dan Sumber Daya Mineral Republik Indonesia",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Bahlil_Lahadalia_2024.jpg/440px-Bahlil_Lahadalia_2024.jpg"
+            },
+            {
+                quote: "Beri aku 1.000 orang tua, niscaya akan kucabut Semeru dari akarnya. Beri aku 10 BEBEK, niscaya akan kuguncangkan dunia.",
+                name: "Soekarno",
+                role: "Mantan Presiden Republik Indonesia-1",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Presiden_Sukarno.jpg/440px-Presiden_Sukarno.jpg"
+            }
+        ];
+
+        let testimonialIndex = 0;
+
+        function renderTestimonial() {
+            const container = document.getElementById('testimonial-container');
+            const data = testimonialData[testimonialIndex];
+
+            container.innerHTML = `
+                <!-- Quote Text -->
+                <div class="flex-1 order-2 md:order-1">
+                    <p class="text-xl md:text-2xl italic font-medium text-gray-700 mb-8 leading-relaxed">
+                        "${data.quote}"
+                    </p>
+                    <div>
+                        <h4 class="font-bold text-lg text-black">${data.name}</h4>
+                        <p class="text-gray-500 text-sm">${data.role}</p>
+                    </div>
+                </div>
+
+                <!-- Image with Yellow Background Accent -->
+                <div class="relative w-48 h-48 md:w-64 md:h-64 flex-shrink-0 order-1 md:order-2 mx-auto">
+                    <div class="absolute top-4 left-4 w-full h-full bg-bebek rounded-lg z-0"></div>
+                    <img src="${data.image}" alt="${data.name}" class="relative w-full h-full object-cover grayscale rounded-lg shadow-lg z-10 bg-gray-200">
+                </div>
+            `;
+        }
+
+        function nextTestimonial() {
+            testimonialIndex = (testimonialIndex + 1) % testimonialData.length;
+            renderTestimonial();
+        }
+
+        function prevTestimonial() {
+            testimonialIndex = (testimonialIndex - 1 + testimonialData.length) % testimonialData.length;
+            renderTestimonial();
+        }
+
+        // Initialize Render
+        renderExplore();
+        renderTestimonial();
+
+    </script>
+</body>
+</html>
